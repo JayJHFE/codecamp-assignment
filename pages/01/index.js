@@ -43,7 +43,7 @@ export default function EmotionPage() {
                 <UserMenuRed><Icon src='/person.png' />마이</UserMenuRed>    
             </BottomMenu> 
         </Wrapper>
-        </div>
+    </div>
     )
 
 }
