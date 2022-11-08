@@ -45,5 +45,4 @@ export default function EmotionPage() {
         </Wrapper>
     </div>
     )
-
 }

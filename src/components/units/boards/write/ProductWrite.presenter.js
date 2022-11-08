@@ -1,4 +1,4 @@
-import { BlueButton, RedInput } from "./Product.Write.styles";
+import {  EmotionButton, EmotionInput } from "./Product.Write.styles";
 
 export default function ProductWriteUI(props){
 
@@ -7,11 +7,11 @@ export default function ProductWriteUI(props){
     //HTML 영역(return 아래)
     return (
         <>
-        판매자 : <RedInput onChange={props.onChangeSeller} /> <br />
-        상품명 : <RedInput onChange={props.onChangeName} />  <br />
-        상세정보 : <RedInput onChange={props.onChangeDetail} /> <br />
-        가격 : <RedInput onChange={props.onChangePrice} />  <br />
-        <BlueButton onClick={props.onClickGetApi}>상품 등록하기</BlueButton>
+        판매자 : <EmotionInput onChange={props.onChangeSeller} /> <br />
+        상품명 : <EmotionInput onChange={props.onChangeName} />  <br />
+        상세정보 : <EmotionInput onChange={props.onChangeDetail} /> <br />
+        가격 : <EmotionInput onChange={props.onChangePrice} />  <br />
+        <EmotionButton fz= "25px" fc= "Red" bgc={props.bgc} onClick={props.onClickGetApi}>상품 등록하기</EmotionButton>
         </>
     )
 

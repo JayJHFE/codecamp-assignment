@@ -6,7 +6,7 @@ import ProductWriteUI from './ProductWrite.presenter';
 
 export default function ProductWrite() {
     
-    //자바스크립트 영역
+    const [bgc, setBgc] = useState(false)
     const [createProduct] = useMutation(CREATE_PRODUCT)
     const [seller,setSeller] = useState("")
     const [name, setName] = useState("")
@@ -54,18 +54,30 @@ export default function ProductWrite() {
 
     const onChangeSeller = (event) => {
         setSeller(event.target.value)
+        if(event.target.value && name && detail && price) {
+            setBgc(true) 
+        }
     }
 
     const onChangeName = (event) => {
-        setName(event.target.value)        
+        setName(event.target.value)
+        if(seller && event.target.value && detail && price) {
+            setBgc(true) 
+        }        
     }
 
     const onChangeDetail = (event) => {
         setDetail(event.target.value)
+        if(seller && name && event.target.value && price) {
+            setBgc(true) 
+        }  
     }
 
     const onChangePrice = (event) => {
         setPrice(event.target.value)
+        if(seller && event.target.value && detail && event.target.value) {
+            setBgc(true) 
+        }  
     }
 
     //HTML 영역(return 아래)
@@ -76,6 +88,7 @@ export default function ProductWrite() {
        onChangeName={onChangeName}
        onChangeDetail={onChangeDetail}
        onChangePrice={onChangePrice}
+       bgc={bgc}
        />
     )
 }

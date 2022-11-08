@@ -4,14 +4,14 @@ import { ColorBox } from "./Product.Fetch.styles";
 
 export default function ProductFetchUI(props) {
 
-    const data = props.data
+    
            
     return(
         <>
-            <ColorBox>판매자 : {data ? data.fetchProduct.seller : "loading..."}</ColorBox>
-            <ColorBox>상품명: {data ? data.fetchProduct.name : "loading..."}</ColorBox>
-            <ColorBox>상세정보: {data ? data.fetchProduct.detail : "loading..."}</ColorBox>
-            <ColorBox>가격: {data ? data.fetchProduct.price : "loading..."}</ColorBox>    
+            <ColorBox>판매자 : {props.data?.fetchProduct?.seller}</ColorBox>
+            <ColorBox>상품명: {props.data?.fetchProduct?.name}</ColorBox>
+            <ColorBox>상세정보: {props.data?.fetchProduct?.detail}</ColorBox>
+            <ColorBox>가격: {props.data?.fetchProduct?.price}</ColorBox>    
         </>
     )
 
