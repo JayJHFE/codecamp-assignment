@@ -1,10 +1,10 @@
 import { useMutation } from '@apollo/client'
 import { useState } from 'react'
 import { useRouter } from "next/router";
-import { CREATE_PRODUCT } from './Product.Write.queries'
+import { CREATE_PRODUCT, UPDATE_PRODUCT } from './Product.Write.queries'
 import ProductWriteUI from './ProductWrite.presenter';
 
-export default function ProductWrite() {
+export default function ProductWrite(props) {
     
     const [bgc, setBgc] = useState(false)
     const [createProduct] = useMutation(CREATE_PRODUCT)
@@ -12,24 +12,13 @@ export default function ProductWrite() {
     const [name, setName] = useState("")
     const [detail,setDetail] = useState("")
     const [price,setPrice] = useState("")
+    const [updateProduct] = useMutation(UPDATE_PRODUCT)
     
     const router = useRouter()
 
     const onClickGetApi = async () => {
         
-        const result = await createProduct({
-            variables: {
-                seller: seller,
-                createProductInput: {
-                        name: name,
-                        detail: detail,
-                        price: Number(price)
-                }
-            }            
-        })
-        
-               
-    
+           
 
         try {const result = await createProduct({
                 variables: {
@@ -44,12 +33,33 @@ export default function ProductWrite() {
             
             console.log(result.data)
             console.log(result.data.createProduct._id) 
-            router.push(`/05/${result.data.createProduct._id}`)
+            router.push(`/08/${result.data.createProduct._id}`)
 
         } catch(error) {
             console.log(error.message)
             alert(error.message)
         }
+    }
+
+    const onClickUpdate = async (event) => {
+        
+        const result = await updateProduct({
+            variables: {
+                productId: router.query.products,
+                updateProductInput: {
+                        name,
+                        detail,
+                        price: Number(price),
+                }
+            }            
+        })
+            console.log("오나라오나라")
+            console.log(event.target)                
+            console.log(result.data)
+            console.log(result.data.updateProduct._id) 
+            router.push(`/08/${result.data.updateProduct._id}`)
+
+        
     }
 
     const onChangeSeller = (event) => {
@@ -84,11 +94,13 @@ export default function ProductWrite() {
     return (
        <ProductWriteUI
        onClickGetApi={onClickGetApi}
+       onClickUpdate={onClickUpdate}
        onChangeSeller={onChangeSeller}
        onChangeName={onChangeName}
        onChangeDetail={onChangeDetail}
        onChangePrice={onChangePrice}
        bgc={bgc}
+       isEdit = {props.isEdit}
        />
     )
 }

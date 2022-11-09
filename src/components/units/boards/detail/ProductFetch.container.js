@@ -12,17 +12,23 @@ export default function ProductFetch() {
 
    const {data} = useQuery(FETCH_PRODUCT, {
         variables: {
-            productId: router.query.boards
+            productId: router.query.products
         }
    })
+
+   const onClickMoveToEdit = () => {
+        router.push(`/08/${router.query.products}/edit`)
+   }
 
    console.log("==========")
    console.log(data);
    console.log("==========")
+   console.log(router.query.id)
 
     return(
         <ProductFetchUI
             data = {data}
+            onClickMoveToEdit = {onClickMoveToEdit}
         />
     )
 }

@@ -11,7 +11,14 @@ export default function ProductWriteUI(props){
         상품명 : <EmotionInput onChange={props.onChangeName} />  <br />
         상세정보 : <EmotionInput onChange={props.onChangeDetail} /> <br />
         가격 : <EmotionInput onChange={props.onChangePrice} />  <br />
-        <EmotionButton fz= "25px" fc= "Red" bgc={props.bgc} onClick={props.onClickGetApi}>상품 등록하기</EmotionButton>
+        <EmotionButton 
+            fz= "25px" 
+            fc= "Red" 
+            bgc={props.bgc} 
+            onClick={props.isEdit ? props.onClickUpdate : props.onClickGetApi}
+            >
+                {props.isEdit ? "수정하기" : "등록하기"}
+            </EmotionButton>
         </>
     )
 
