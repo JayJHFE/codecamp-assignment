@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <>
         <Global styles={globalStyles} />
         <Layout>
-            <Component />
+            <Component {...pageProps}/>
         </Layout>
       </>
     </ApolloSetting>

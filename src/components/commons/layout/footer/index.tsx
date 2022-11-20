@@ -6,5 +6,5 @@ const Wrapper = styled.div`
 `;
 
 export default function LayoutFooter(): JSX.Element {
-  return <Wrapper>푸터asdfasdfasd영역</Wrapper>;
+  return <Wrapper>푸터영역</Wrapper>;
 }
