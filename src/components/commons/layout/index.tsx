@@ -22,9 +22,9 @@ export default function Layout(props: ILayoutProps) {
         <LayoutHeader/>
         <LayoutBanner />
         <LayoutNavigation />
-        <div>
+        <div style={{height: "800px"}}>
           <div style = {mystyles}>
-          <div style={{ width: "30%", backgroundColor: "skyblue" }}>사이드바 영역</div>
+          <div style={{ width: "30%", height: "800px", backgroundColor: "skyblue" }}>사이드바 영역</div>
           <div style={{ width: "70%" }}>{props.children}</div>
           </div>
         </div>
