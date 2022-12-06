@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "pages/24/02-validation.tss"  ],
   "exclude": [
     "node_modules"
   ]
