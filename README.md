@@ -2,7 +2,7 @@
 ![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&&reversal=truesection=header&text=일일과제&fontSize=90)
 
 
-## 프로젝트 소개
+### 소개
 
 부트기간 내 일일 과제
 당일 공부내용에 대한 일일과제들을 위한 Repository 입니다.
